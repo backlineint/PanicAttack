@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+
+<!-- Since the scrips are buried in panic_attack.hype's data.plist I'm including
+an export of them here for reference/readability. This file is not used when
+loading the actual animation -->
+
+<!-- ... -->
+
+	<key>scripts</key>
+	<array>
+		<dict>
+			<key>oid</key>
+			<string>28</string>
+			<key>source</key>
+			<string>// element - DOMHTMLElement that triggered this function being called
+// event - event that triggered this function being called
+function tapComputer(hypeDocument, element, event) {
+	if ((window.popup_open != 1) &amp;&amp; (window.computer_clicked != 1)) {
+		hypeDocument.startTimelineNamed('Computer On');
+		addPanic(50);
+		window.computer_clicked = 1;
+	}
+}
+</string>
+		</dict>
+		<dict>
+			<key>oid</key>
+			<string>33</string>
+			<key>source</key>
+			<string>// element - DOMHTMLElement that triggered this function being called
+// event - event that triggered this function being called
+function initPanic(hypeDocument, element, event) {
+
+	window.meter = 50;
+	window.counter = 0;
+	window.popup_open = 0;
+	window.computer_clicked = 0;
+	window.couch_clicked = 0;
+	window.bong_clicked = 0;
+	window.whiskey_clicked = 0;
+	window.magazine_clicked = 0;
+	window.dog_clicked = 0;
+	window.cat_clicked = 0;
+	window.tv_clicked = 0;
+	window.tea_clicked = 0;
+	window.phone_clicked = 0;
+	window.book_clicked = 0;
+
+	window.addPanic = function(panic) {
+			window.popup_open = 1;
+			window.meter = window.meter + panic;
+			var meterText = document.getElementById('meter_text');
+			meterText.innerHTML = window.meter + "%";
+		if (window.meter &gt;= 100) {
+			window.meter = 100;
+			meterText.innerHTML = "100%";
+		}
+		if (window.meter &lt;= 30) { meterText.style.color="green"; }
+		if ((window.meter &gt; 30) &amp;&amp; (window.meter &lt; 70)) { meterText.style.color="yellow"; }
+		if (window.meter &gt;= 70) { meterText.style.color="red"; }
+	};
+
+	window.addCalm = function(calm) {
+			window.popup_open = 1;
+			window.meter = window.meter - calm;
+			var meterText = document.getElementById('meter_text');
+			meterText.innerHTML = window.meter + "%";
+		if (window.meter &lt;= 0) {
+			window.meter = 0;
+			meterText.innerHTML = "0%";
+		}
+		if (window.meter &lt;= 30) { meterText.style.color="green"; }
+		if ((window.meter &gt; 30) &amp;&amp; (window.meter &lt; 70)) { meterText.style.color="yellow"; }
+		if (window.meter &gt;= 70) { meterText.style.color="red"; }
+	};
+
+}
+</string>
+		</dict>
+		<dict>
+			<key>oid</key>
+			<string>37</string>
+			<key>source</key>
+			<string>// element - DOMHTMLElement that triggered this function being called
+// event - event that triggered this function being called
+function tapCouch(hypeDocument, element, event) {
+	if ((window.popup_open != 1) &amp;&amp; (window.couch_clicked != 1)) {
+		hypeDocument.startTimelineNamed('Couch On');
+		addCalm(20);
+		window.couch_clicked = 1;
+	}
+}
+</string>
+		</dict>
+		<dict>
+			<key>oid</key>
+			<string>77</string>
+			<key>source</key>
+			<string>// element - DOMHTMLElement that triggered this function being called
+// event - event that triggered this function being called
+function tapBong(hypeDocument, element, event) {
+	if ((window.popup_open != 1) &amp;&amp; (window.bong_clicked != 1)) {
+		hypeDocument.startTimelineNamed('Bong On');
+		addPanic(20);
+		window.bong_clicked = 1;
+	}
+}
+</string>
+		</dict>
+		<dict>
+			<key>oid</key>
+			<string>78</string>
+			<key>source</key>
+			<string>// element - DOMHTMLElement that triggered this function being called
+// event - event that triggered this function being called
+function tapWhiskey(hypeDocument, element, event) {
+	if ((window.popup_open != 1) &amp;&amp; (window.whiskey_clicked != 1)) {
+		hypeDocument.startTimelineNamed('Whiskey On');
+		addCalm(5);
+		window.whiskey_clicked = 1;
+	}
+}
+</string>
+		</dict>
+		<dict>
+			<key>oid</key>
+			<string>86</string>
+			<key>source</key>
+			<string>// element - DOMHTMLElement that triggered this function being called
+// event - event that triggered this function being called
+function tapMagazine(hypeDocument, element, event) {
+	if ((window.popup_open != 1) &amp;&amp; (window.magazine_clicked != 1)) {
+		hypeDocument.startTimelineNamed('Magazine On');		addCalm(20);
+		window.magazine_clicked = 1;
+	}
+}
+</string>
+		</dict>
+		<dict>
+			<key>oid</key>
+			<string>94</string>
+			<key>source</key>
+			<string>// element - DOMHTMLElement that triggered this function being called
+// event - event that triggered this function being called
+function tapDog(hypeDocument, element, event) {
+	if ((window.popup_open != 1) &amp;&amp; (window.dog_clicked != 1)) {
+		hypeDocument.startTimelineNamed('Dog On');		addCalm(30);
+		window.dog_clicked = 1;
+	}
+}
+</string>
+		</dict>
+		<dict>
+			<key>oid</key>
+			<string>104</string>
+			<key>source</key>
+			<string>// element - DOMHTMLElement that triggered this function being called
+// event - event that triggered this function being called
+function tapCat(hypeDocument, element, event) {
+	if ((window.popup_open != 1) &amp;&amp; (window.cat_clicked != 1)) {
+		hypeDocument.startTimelineNamed('Cat On');		addPanic(30);
+		window.cat_clicked = 1;
+	}
+}
+</string>
+		</dict>
+		<dict>
+			<key>oid</key>
+			<string>111</string>
+			<key>source</key>
+			<string>// element - DOMHTMLElement that triggered this function being called
+// event - event that triggered this function being called
+function tapTV(hypeDocument, element, event) {
+	if ((window.popup_open != 1) &amp;&amp; (window.tv_clicked != 1)) {
+		hypeDocument.startTimelineNamed('TV On');		addCalm(20);
+		window.tv_clicked = 1;
+	}
+}
+</string>
+		</dict>
+		<dict>
+			<key>oid</key>
+			<string>118</string>
+			<key>source</key>
+			<string>// element - DOMHTMLElement that triggered this function being called
+// event - event that triggered this function being called
+function tapTea(hypeDocument, element, event) {
+	if ((window.popup_open != 1) &amp;&amp; (window.tea_clicked != 1)) {
+		hypeDocument.startTimelineNamed('Tea On');		addPanic(15);
+		window.tea_clicked = 1;
+	}
+}
+</string>
+		</dict>
+		<dict>
+			<key>oid</key>
+			<string>124</string>
+			<key>source</key>
+			<string>// element - DOMHTMLElement that triggered this function being called
+// event - event that triggered this function being called
+function tapPhone(hypeDocument, element, event) {
+	if ((window.popup_open != 1) &amp;&amp; (window.phone_clicked != 1)) {
+		hypeDocument.startTimelineNamed('Phone On');		addCalm(20);
+		window.phone_clicked = 1;
+	}
+}
+</string>
+		</dict>
+		<dict>
+			<key>oid</key>
+			<string>132</string>
+			<key>source</key>
+			<string>// element - DOMHTMLElement that triggered this function being called
+// event - event that triggered this function being called
+function tapBook(hypeDocument, element, event) {
+	if ((window.popup_open != 1) &amp;&amp; (window.book_clicked != 1)) {
+		hypeDocument.startTimelineNamed('Book On');		addPanic(20);
+		window.book_clicked = 1;
+	}
+}
+</string>
+		</dict>
+		<dict>
+			<key>oid</key>
+			<string>190</string>
+			<key>source</key>
+			<string>// element - DOMHTMLElement that triggered this function being called
+// event - event that triggered this function being called
+function tapX(hypeDocument, element, event) {
+
+	addCalm(40);
+
+}
+</string>
+		</dict>
+		<dict>
+			<key>oid</key>
+			<string>191</string>
+			<key>source</key>
+			<string>// element - DOMHTMLElement that triggered this function being called
+// event - event that triggered this function being called
+function closePopup(hypeDocument, element, event) {
+
+	window.popup_open = 0;
+	window.counter++;
+
+	if (window.meter &gt;= 100) {
+
+		hypeDocument.showSceneNamed('Panic Attack');
+	}
+
+	if (window.meter &lt;= 0) {
+		hypeDocument.showSceneNamed('Xanax');
+	}
+
+	if (window.counter &gt;= 11) {
+		hypeDocument.showSceneNamed('Xanax');
+	}
+
+}
+</string>
+		</dict>
+	</array>
+
+<!-- ... -->
+
+</plist>
